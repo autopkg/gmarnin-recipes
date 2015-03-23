@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the current release version of cTiVo and imports into Munki.</string>
+    <key>Identifier</key>
+    <string>com.github.gmarnin.munki.cTiVo</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>cTiVo</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/cTiVo</string>
+        <key>SPARKLE_FEED_URL</key>
+        <string>https://raw.github.com/dscottbuch/cTiVo/master/update/sparklecast.xml</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>category</key>
+			<string>Media Converter</string>
+			<key>developer</key>
+			<string>cTiVo</string>
+            <key>description</key>
+            <string>cTiVo is a free Mac application to download shows from your TiVo (Roamio, Premiere, HD, S3 or S2 devices) and convert them to many popular formats and devices. Its goal is to be extremely simple to set up and use, but very flexible.</string>
+            <key>display_name</key>
+            <string>cTiVo</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.3.1</string>
+    <key>ParentRecipe</key>
+	<string>com.github.gmarnin.download.cTiVo</string>
+    <key>Process</key>
+	<array>
+        <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>archive_path</key>
+                <string>%pathname%</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>DmgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>dmg_root</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <key>dmg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%dmg_path%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
