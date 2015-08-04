@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the most recent update for Finale as a Zip archive (via Sparkle) and imports into Munki.</string>
     <key>Identifier</key>
-    <string>com.github.jazzace.download.FinaleUpdate</string>
+    <string>com.github.gmarnin.munki.FinaleUpdate</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
