@@ -10,7 +10,7 @@ To mass deploy the Prey via munki, make a recipe override `autopkg make-override
 ```
 
 
-Source: [http://help.preyproject.com/article/63-how-to-mass-deploy-prey-for-mac-os-x](How to mass deploy prey for Mac OS X) 
+Source: [How to mass deploy prey for Mac OS X](http://help.preyproject.com/article/63-how-to-mass-deploy-prey-for-mac-os-x) 
 
 
 
