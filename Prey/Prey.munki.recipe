@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version of Prey using the package based batch installer and imports into Munki.</string>
+    <key>Identifier</key>
+    <string>com.github.gmarnin.munki.Prey</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Prey</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/Prey</string>
+ 	     <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+			<key>developer</key>
+			<string>Prey Project</string>
+            <key>description</key>
+			<string>Getting your laptop or your phone stolen sucks, but there is something you can do about it. Prey is a lightweight theft protection software that lets you keep an eye over them whether in town or abroad, and helps you recover them if ever lost or stolen.</string>
+            <key>display_name</key>
+            <string>Prey</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.3.1</string>
+    <key>ParentRecipe</key>
+	<string>com.github.hansen-m.download.Prey</string>
+	<key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
