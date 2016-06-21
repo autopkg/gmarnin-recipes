@@ -25,7 +25,7 @@
 			<key>developer</key>
 			<string>Nulana</string>
             <key>description</key>
-            <string>Fast, secure and feature-packed VNC client used for remote access</string>
+            <string>Fast, secure and feature-packed VNC client used for remote access.</string>
             <key>display_name</key>
             <string>Remotix</string>
             <key>name</key>
