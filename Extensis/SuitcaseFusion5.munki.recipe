@@ -13,7 +13,7 @@
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps/Extensis/Suitcase</string>
         <key>SPARKLE_FEED_URL</key>
-        <string>http://sparkle.extensis.com/u/ST/EN/suitcase16en.xml</string>
+        <string>https://sparkle.extensis.com/u/ST/EN/suitcase16en.xml</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
