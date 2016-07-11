@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of Remotix.</string>
+    <string>Downloads the current release version of Remotix. Note: https is not available as of 7/11/2016, port 443: Connection refused</string>
     <key>Identifier</key>
     <string>com.github.gmarnin.download.Remotix</string>
     <key>Input</key>
