@@ -13,7 +13,7 @@
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps/Nulana</string>
         <key>SPARKLE_FEED_URL</key>
-        <string>http://downloads.nulana.com/remotix/appcast.xml</string>
+        <string>https://downloads.nulana.com/remotix/appcast.xml</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
