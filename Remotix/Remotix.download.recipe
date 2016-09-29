@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of Remotix. Note: https is not available as of 7/11/2016, port 443: Connection refused</string>
+    <string>Downloads the current release version of Remotix.</string>
     <key>Identifier</key>
     <string>com.github.gmarnin.download.Remotix</string>
     <key>Input</key>
@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Remotix</string>
         <key>SPARKLE_FEED_URL</key>
-        <string>http://downloads.nulana.com/remotix/appcast.xml</string>
+        <string>https://downloads.nulana.com/remotix/appcast.xml</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.3.1</string>
