@@ -26,8 +26,8 @@
 			<string>Nulana</string>
             <key>description</key>
             <string>Fast, secure and feature-packed VNC client used for remote access.
-			&lt;/p&gt;&lt;/p&gt;
-			For more information visit the &lt;a href="http://downloads.nulana.com/remotix/Remotix-4.1-18987-ReleaseNotes.html" target="_blank"&gt;Release Notes&lt;/a&gt;.&lt;/p&gt;&lt;/html&gt;</string>
+	&lt;/p&gt;&lt;/p&gt;
+	For more information visit the &lt;a href="http://downloads.nulana.com/remotix/Remotix-4.1-18987-ReleaseNotes.html" target="_blank"&gt;Release Notes&lt;/a&gt;.&lt;/p&gt;&lt;/html&gt;</string>
             <key>display_name</key>
             <string>Remotix</string>
             <key>name</key>
