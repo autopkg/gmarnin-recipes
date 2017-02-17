@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of TileMill. Codesign is using Sealed Resources version=1, version 2 is needed to verify that the developer signed it with the second version of Apple's signature format, as that is what the processor is strict about when checking.</string>
+	<key>Identifier</key>
+	<string>com.github.gmarnin.download.tilemill</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>TileMill</string>
+		<key>DOWNLOAD_URL</key>
+		<string>https://tilemill-project.github.io/tilemill/</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.6.1</string>
+    <key>Process</key>
+    <array>
+		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%DOWNLOAD_URL%</string>
+				<key>re_pattern</key>
+				<string>(http:\/\/.*TileMill-[0-9\.]+zip)'>macOS</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%match%</string>
+				<key>filename</key>
+				<string>%NAME%.zip</string>
+			</dict>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
+
