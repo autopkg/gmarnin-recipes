@@ -12,6 +12,10 @@
 		<string>apps/Tableau</string>
 		<key>NAME</key>
 		<string>TableauDesktop</string>
+		<key>pkg_ids_set_optional_true</key>
+		<array>
+			<string>com.tableausoftware.desktopShortcut</string>
+		</array>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -22,6 +26,73 @@
 			<string>Tableau Desktop is data visualization software that lets you see and understand data in minutes.</string>
 			<key>display_name</key>
 			<string>Tableau Desktop</string>
+			<key>installer_choices_xml</key>
+			<array>
+				<dict>
+					<key>attributeSetting</key>
+					<integer>1</integer>
+					<key>choiceAttribute</key>
+					<string>selected</string>
+					<key>choiceIdentifier</key>
+					<string>com.tableausoftware.desktop.app</string>
+				</dict>
+				<dict>
+					<key>attributeSetting</key>
+					<integer>0</integer>
+					<key>choiceAttribute</key>
+					<string>selected</string>
+					<key>choiceIdentifier</key>
+					<string>com.tableausoftware.desktopShortcut</string>
+				</dict>
+				<dict>
+					<key>attributeSetting</key>
+					<integer>1</integer>
+					<key>choiceAttribute</key>
+					<string>selected</string>
+					<key>choiceIdentifier</key>
+					<string>com.amazon.redshiftodbc</string>
+				</dict>
+				<dict>
+					<key>attributeSetting</key>
+					<integer>1</integer>
+					<key>choiceAttribute</key>
+					<string>selected</string>
+					<key>choiceIdentifier</key>
+					<string>com.tableausoftware.mysql</string>
+				</dict>
+				<dict>
+					<key>attributeSetting</key>
+					<integer>1</integer>
+					<key>choiceAttribute</key>
+					<string>selected</string>
+					<key>choiceIdentifier</key>
+					<string>com.tableausoftware.oracle</string>
+				</dict>
+				<dict>
+					<key>attributeSetting</key>
+					<integer>1</integer>
+					<key>choiceAttribute</key>
+					<string>selected</string>
+					<key>choiceIdentifier</key>
+					<string>com.tableausoftware.postgresql</string>
+				</dict>
+				<dict>
+					<key>attributeSetting</key>
+					<integer>1</integer>
+					<key>choiceAttribute</key>
+					<string>selected</string>
+					<key>choiceIdentifier</key>
+					<string>com.simba.sparkodbc</string>
+				</dict>
+				<dict>
+					<key>attributeSetting</key>
+					<integer>1</integer>
+					<key>choiceAttribute</key>
+					<string>selected</string>
+					<key>choiceIdentifier</key>
+					<string>com.simba.sqlserverodbc</string>
+				</dict>
+			</array>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
@@ -96,6 +167,10 @@
 			</dict>
 			<key>Processor</key>
 			<string>MunkiImporter</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>com.github.keeleysam.recipes.GoogleTalkPlugin/MunkiPkginfoReceiptsEditor</string>
 		</dict>
 	</array>
 </dict>
