@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest verison of Logitech Control Center. Note: https is not available as of 7/11/2016</string>
+    <string>Downloads the latest verison of Logitech Control Center.</string>
     <key>Identifier</key>
     <string>com.github.gmarnin.download.logitechcontrolcenter</string>
     <key>Input</key>
