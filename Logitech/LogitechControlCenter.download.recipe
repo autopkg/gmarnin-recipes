@@ -23,7 +23,7 @@
                 <key>url</key>
                 <string>http://support.logitech.com/en_us/software/logitech-control-center-for-macintosh-os-x</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;url&gt;http://www.logitech.com/pub/techsupport/mouse/mac.*?\.zip)</string>
+                <string>(?P&lt;url&gt;https:\/\/download01\.logi\.com\/web\/ftp\/pub\/techsupport\/mouse\/mac\/lcc.*?\.zip)</string>
             </dict>
         </dict>
         <dict>
