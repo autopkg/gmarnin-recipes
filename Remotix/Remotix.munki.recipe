@@ -12,8 +12,6 @@
         <string>Remotix</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps/Nulana</string>
-        <key>SPARKLE_FEED_URL</key>
-        <string>https://downloads.nulana.com/remotix/appcast.xml</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
@@ -41,40 +39,12 @@
     <key>ParentRecipe</key>
 	<string>com.github.gmarnin.download.Remotix</string>
     <key>Process</key>
-	<array>
-        <dict>
-            <key>Processor</key>
-            <string>Unarchiver</string>
-            <key>Arguments</key>
-            <dict>
-                <key>archive_path</key>
-                <string>%pathname%</string>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
-                <key>purge_destination</key>
-                <true/>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>DmgCreator</string>
-            <key>Arguments</key>
-            <dict>
-                <key>dmg_root</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
-                <key>dmg_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiPkginfoMerger</string>
-        </dict>
+    <array>
         <dict>
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
-                <string>%dmg_path%</string>
+                <string>%pathname%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
