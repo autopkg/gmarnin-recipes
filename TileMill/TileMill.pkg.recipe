@@ -8,8 +8,6 @@
 	<string>com.github.gmarnin.pkg.tilemill</string>
 	<key>Input</key>
 	<dict>
-		<key>BUNDLE_ID</key>
-		<string>com.mapbox.tilemill</string>
 		<key>NAME</key>
 		<string>TileMill</string>
 	</dict>
