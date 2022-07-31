@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/autopkg/python
 #
 # Copyright 2019 Andy Semak
 #
@@ -39,24 +39,21 @@ class TeamsPost(Processor):
         "Takes elements from "
         "https://gist.github.com/devStepsize/b1b795309a217d24566dcc0ad136f784"
         "and "
-        "https://github.com/autopkg/nmcspadden-recipes/blob/master/PostProcessors/Yo.py")  # noqa
+        "https://github.com/autopkg/nmcspadden-recipes/blob/master/PostProcessors/Yo.py"
+    )  # noqa
 
     input_variables = {
         "munki_info": {
             "required": False,
-            "description": ("Munki info dictionary to use to display info.")
+            "description": ("Munki info dictionary to use to display info."),
         },
         "munki_repo_changed": {
             "required": False,
-            "description": ("Whether or not item was imported.")
+            "description": ("Whether or not item was imported."),
         },
-        "webhook_url": {
-            "required": False,
-            "description": ("Teams webhook.")
-        }
+        "webhook_url": {"required": False, "description": ("Teams webhook.")},
     }
-    output_variables = {
-    }
+    output_variables = {}
 
     __doc__ = description
 
@@ -64,38 +61,61 @@ class TeamsPost(Processor):
         was_imported = self.env.get("munki_repo_changed")
         munkiInfo = self.env.get("munki_info")
         webhook_url = self.env.get("webhook_url")
-        emojiList = ['&#x1F44A;', '&#x1F44C;', '&#x1F44D;', '&#x1F44F;',
-                     '&#x1F596;', '&#x1F590;', '&#x1F64C;', '&#x1F44B;',
-                     '&#x1F4AA;', '&#x1F525;', '&#x1F386;', '&#x1F9E8;',
-                     '&#x1F389;', '&#x1F381;', '&#x1F3C6;', '&#x1F91A;',
-                     '&#x270B;', '&#x270C;', '&#x1F91F;', '&#x1F918;',
-                     '&#x1F919;', '&#x270A;']
+        emojiList = [
+            "&#x1F44A;",
+            "&#x1F44C;",
+            "&#x1F44D;",
+            "&#x1F44F;",
+            "&#x1F596;",
+            "&#x1F590;",
+            "&#x1F64C;",
+            "&#x1F44B;",
+            "&#x1F4AA;",
+            "&#x1F525;",
+            "&#x1F386;",
+            "&#x1F9E8;",
+            "&#x1F389;",
+            "&#x1F381;",
+            "&#x1F3C6;",
+            "&#x1F91A;",
+            "&#x270B;",
+            "&#x270C;",
+            "&#x1F91F;",
+            "&#x1F918;",
+            "&#x1F919;",
+            "&#x270A;",
+        ]
         emoji = random.choice(emojiList)
 
         if was_imported:
-            name = self.env.get("munki_importer_summary_result")[
-                "data"]["name"]
-            version = self.env.get("munki_importer_summary_result")[
-                "data"]["version"]
-            pkg_path = self.env.get("munki_importer_summary_result")[
-                "data"]["pkg_repo_path"]
-            pkginfo_path = self.env.get("munki_importer_summary_result")[
-                "data"]["pkginfo_path"]
-            catalog = self.env.get("munki_importer_summary_result")[
-                "data"]["catalogs"]
+            name = self.env.get("munki_importer_summary_result")["data"]["name"]
+            version = self.env.get("munki_importer_summary_result")["data"]["version"]
+            pkg_path = self.env.get("munki_importer_summary_result")["data"][
+                "pkg_repo_path"
+            ]
+            pkginfo_path = self.env.get("munki_importer_summary_result")["data"][
+                "pkginfo_path"
+            ]
+            catalog = self.env.get("munki_importer_summary_result")["data"]["catalogs"]
             if name:
-                teams_text = "**New item added to repo:**   \nTitle: **%s**\
+                teams_text = (
+                    "**New item added to repo:**   \nTitle: **%s**\
                              \nVersion: **%s**  \nCatalog: **%s**  \nPkg Path:\
-                             **%s**  \nPkginfo Path: **%s**" % (
-                             name, version, catalog, pkg_path,
-                             pkginfo_path)
-                teams_data = {'text': teams_text, 'textformat': "markdown",
-                              'title': "%s" % (emoji)}
+                             **%s**  \nPkginfo Path: **%s**"
+                    % (name, version, catalog, pkg_path, pkginfo_path)
+                )
+                teams_data = {
+                    "text": teams_text,
+                    "textformat": "markdown",
+                    "title": "%s" % (emoji),
+                }
 
                 response = requests.post(webhook_url, json=teams_data)
                 if response.status_code != 200:
-                    raise ValueError('Request to Teams returned an error %s, the response is:\n%s' %  # noqa
-                                    (response.status_code, response.text))
+                    raise ValueError(
+                        "Request to Teams returned an error %s, the response is:\n%s"
+                        % (response.status_code, response.text)  # noqa
+                    )
 
 
 if __name__ == "__main__":
