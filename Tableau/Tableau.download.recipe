@@ -3,7 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads latest Tableau Desktop disk image.</string>
+	<string>Downloads latest Tableau Desktop disk image.
+	To get the Intel build, create a recipe-override with DOWNLOAD_URL of https://www.tableau.com/downloads/desktop/mac</string>
 	<key>Identifier</key>
 	<string>com.github.gmarnin.download.tableau-desktop</string>
 	<key>Input</key>
