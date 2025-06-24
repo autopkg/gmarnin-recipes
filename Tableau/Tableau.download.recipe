@@ -9,7 +9,7 @@
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOAD_URL</key>
-		<string>https://www.tableau.com/downloads/desktop/mac</string>
+		<string>https://www.tableau.com/downloads/desktop/mac-arm64</string>
 		<key>NAME</key>
 		<string>TableauDesktop</string>
 	</dict>
