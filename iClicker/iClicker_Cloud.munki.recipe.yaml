@@ -1,0 +1,31 @@
+Description: Downloads the latest version of the iClicker Cloud instructor app for macOS and imports it into Munki.
+Identifier: com.github.gmarnin.munki.iClicker_Cloud
+ParentRecipe: com.github.gmarnin.download.iClicker_Cloud
+MinimumVersion: '2.3'
+
+Input:
+  NAME: iClicker Cloud
+  MUNKI_REPO_SUBDIR: apps/%NAME%
+  MUNKI_CATEGORY: Education
+  MUNKI_DEVELOPER: Macmillan Learning
+  pkginfo:
+    blocking_applications:
+      - iClicker Cloud.app
+    catalogs:
+      - testing
+    category: '%MUNKI_CATEGORY%'
+    description: iClicker Cloud is the instructor desktop software for running polling, quizzing, and attendance activities from a laptop or podium computer. It requires an iClicker Cloud instructor account.
+    developer: '%MUNKI_DEVELOPER%'
+    display_name: '%NAME%'
+    minimum_os_version: '12.0'
+    name: '%NAME%'
+    unattended_install: true
+    unattended_uninstall: true
+
+Process:
+  # The DMG holds "iClicker Cloud.app" at its root, so MunkiImporter builds a
+  # copy_from_dmg item with an installs array and version from the app bundle.
+  - Processor: MunkiImporter
+    Arguments:
+      pkg_path: '%pathname%'
+      repo_subdirectory: '%MUNKI_REPO_SUBDIR%'

@@ -1,0 +1,35 @@
+Description: Downloads the latest version of the iClicker Cloud instructor app for macOS.
+Identifier: com.github.gmarnin.download.iClicker_Cloud
+MinimumVersion: '2.3'
+
+Input:
+  NAME: iClicker Cloud
+  SOFTWARE_TITLE: iClicker_Cloud
+  SEARCH_URL: https://www.iclicker.com/downloads/iclicker-cloud/
+  RE_PATTERN: 'href="(?P<download_url>https://downloads\.iclicker\.com/app-downloads/iclicker-cloud-(?P<version>\d+(?:\.\d+)+)-mac\.dmg)"'
+  BYPASS_STOP_PROCESSING_IF_DOWNLOAD_UNCHANGED: 'False'
+
+Process:
+  - Processor: URLTextSearcher
+    Arguments:
+      re_pattern: '%RE_PATTERN%'
+      url: '%SEARCH_URL%'
+
+  - Processor: URLDownloader
+    Arguments:
+      filename: '%SOFTWARE_TITLE%.dmg'
+      url: '%download_url%'
+
+  - Processor: EndOfCheckPhase
+
+  - Processor: StopProcessingIf
+    Arguments:
+      predicate: 'download_changed == False AND %BYPASS_STOP_PROCESSING_IF_DOWNLOAD_UNCHANGED% == False'
+
+  # The DMG contains "iClicker Cloud.app" at its root, signed by
+  # Developer ID Application: HPHLP (5E845CEVPW). Pin the bundle id and
+  # team id so a renewed leaf certificate does not break the recipe.
+  - Processor: CodeSignatureVerifier
+    Arguments:
+      input_path: '%pathname%/iClicker Cloud.app'
+      requirement: 'identifier "com.macmillannewventures.iclicker-cloud" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "5E845CEVPW"'
