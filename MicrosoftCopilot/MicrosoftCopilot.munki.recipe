@@ -85,7 +85,7 @@ Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_versi
                 <key>faux_root</key>
                 <string>%RECIPE_CACHE_DIR%</string>
                 <key>version_comparison_key</key>
-                <string>CFBundleVersion</string>
+                <string>CFBundleShortVersionString</string>
                 <key>installs_item_paths</key>
                 <array>
                     <string>/Applications/Copilot.app</string>
